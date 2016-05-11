@@ -30,7 +30,7 @@ var user = mongoose.model('employee', Schema);
 app.get('/view', function(req,res){
 	user.find({}, function(err,docs){
 		if(err) res.json(err);
-		else res.send(docs);
+		else res.render('index',{users: docs});
 	});
 });
 app.post('/new', function(req,res){
